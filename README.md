@@ -30,7 +30,7 @@ To install Forkify locally, follow these steps:
 1. Clone the repository:
 
 ```
-git clone https://github.com/your-username/forkify.git
+git clone https://github.com/your-username/Forkify.git
 ```
 
 2. Navigate to the project directory:
