@@ -606,11 +606,10 @@ const controlRecipes = async function() {
         alert(err);
     }
 };
-[
-    "hashchane",
-    "load"
-].forEach((ev)=>window.addEventListener(ev, controlRecipes)); // window.addEventListener('hashchange', controlRecipes);
- // window.addEventListener('load', controlRecipes);
+const init = function() {
+    (0, _recipeVieewJsDefault.default).addHandlerRender(controlRecipes);
+};
+init();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"NV2O8","./model.js":"Y4A21","./views/recipeVieew.js":"jszD7"}],"NV2O8":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -1322,6 +1321,14 @@ class RecipeView {
         this.#parentElement.innerHTML = "";
         this.#parentElement.insertAdjacentHTML("afterbegin", markup);
     };
+    addHandlerRender(handler) {
+        [
+            "hashchane",
+            "load"
+        ].forEach((ev)=>window.addEventListener(ev, handler));
+    // window.addEventListener('hashchange', controlRecipes);
+    // window.addEventListener('load', controlRecipes);
+    }
     #generateMarkup() {
         return `<figure class="recipe__fig">
     <img src="${this.#data.image}" alt="${this.#data.title}" class="recipe__img" />
